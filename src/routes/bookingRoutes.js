@@ -24,6 +24,11 @@ const authMiddleware = require("../middleware/authMiddleware");
  *               eventId:
  *                 type: string
  *                 example: 507f1f77bcf86cd799439011
+ *               ticketCount:
+ *                 type: integer
+ *                 minimum: 1
+ *                 default: 1
+ *                 example: 2
  *     responses:
  *       201:
  *         description: Event booked successfully
@@ -43,6 +48,10 @@ router.post(
       .notEmpty()
       .withMessage("Event ID is required")
       .escape(),
+    body("ticketCount")
+      .optional()
+      .isInt({ min: 1 })
+      .withMessage("Ticket count must be at least 1"),
   ],
   bookingController.bookEvent,
 );

@@ -12,7 +12,7 @@ const bookEvent = async (req, res) => {
     return res.status(400).json({ errors: errors.array() });
   }
 
-  const { eventId } = req.body;
+  const { eventId, ticketCount = 1 } = req.body;
 
   try {
     // Inter-service communication: verify event exists via Event Service
@@ -49,6 +49,7 @@ const bookEvent = async (req, res) => {
       eventTitle: eventData.title,
       eventDate: eventData.date,
       eventLocation: eventData.location,
+      ticketCount: Math.max(1, parseInt(ticketCount) || 1),
       status: "confirmed",
       bookedAt: new Date(),
     };

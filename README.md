@@ -17,7 +17,7 @@ This service manages event bookings and integrates with:
 | `GET`    | `/api/bookings/:userId` | Get bookings by user ID   | No            |
 | `DELETE` | `/api/bookings/:id`     | Cancel a booking          | Yes (Bearer)  |
 | `GET`    | `/health`               | Health check              | No            |
-| `GET`    | `/api-docs`             | Swagger API documentation | No            |
+| `GET`    | `/api/bookings/docs`    | Swagger API documentation | No            |
 
 ## Inter-Service Communication
 
@@ -43,6 +43,13 @@ Client → Booking Service (with JWT token in header)
 - **CI/CD**: GitHub Actions
 - **Cloud**: AWS (ECR + ECS Fargate)
 - **SAST**: Snyk
+
+## API Documentation (Swagger)
+
+The Swagger API documentation for all microservices is accessible via the AWS Application Load Balancer. 
+
+To view the Swagger UI for the Booking Service, visit:
+**[`http://ticket-go-alb-823936217.ap-southeast-1.elb.amazonaws.com/api/bookings/docs`](http://ticket-go-alb-823936217.ap-southeast-1.elb.amazonaws.com/api/bookings/docs)**
 
 ## Getting Started
 
