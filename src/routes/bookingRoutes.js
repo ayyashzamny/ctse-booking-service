@@ -6,6 +6,25 @@ const authMiddleware = require("../middleware/authMiddleware");
 
 /**
  * @swagger
+ * /api/bookings/health:
+ *   get:
+ *     summary: Health Check
+ *     description: Returns the health status of the Booking Service
+ *     tags: [Health]
+ *     responses:
+ *       200:
+ *         description: Service is healthy
+ */
+router.get("/health", (req, res) => {
+  res.json({
+    status: "ok",
+    service: "booking-service",
+    timestamp: new Date().toISOString(),
+  });
+});
+
+/**
+ * @swagger
  * /api/bookings:
  *   post:
  *     summary: Book an event

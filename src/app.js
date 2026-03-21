@@ -34,26 +34,6 @@ app.use(limiter);
 // --- Swagger API Docs ---
 app.use("/api/bookings/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-/**
- * @swagger
- * /api/bookings/health:
- *   get:
- *     summary: Health Check
- *     description: Returns the health status of the Booking Service
- *     tags: [Health]
- *     responses:
- *       200:
- *         description: Service is healthy
- */
-
-app.get("/api/bookings/health", (req, res) => {
-  res.json({
-    status: "ok",
-    service: "booking-service",
-    timestamp: new Date().toISOString(),
-  });
-});
-
 // --- Routes ---
 app.use("/api/bookings", bookingRoutes);
 
