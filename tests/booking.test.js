@@ -20,6 +20,15 @@ describe("Booking Service", () => {
     });
   });
 
+  describe("GET /api/bookings/health", () => {
+    it("should return health status via alias", async () => {
+      const res = await request(app).get("/api/bookings/health");
+      expect(res.statusCode).toBe(200);
+      expect(res.body.status).toBe("ok");
+      expect(res.body.service).toBe("booking-service");
+    });
+  });
+
   describe("POST /api/bookings", () => {
     it("should reject booking without token", async () => {
       const res = await request(app)

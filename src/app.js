@@ -41,8 +41,16 @@ app.use("/api/bookings", bookingRoutes);
  * @swagger
  * /booking/health:
  *   get:
- *     summary: Health Check
+ *     summary: Health Check (Direct)
  *     description: Returns the health status of the Booking Service
+ *     tags: [Health]
+ *     responses:
+ *       200:
+ *         description: Service is healthy
+ * /api/bookings/health:
+ *   get:
+ *     summary: Health Check (Routed)
+ *     description: Returns the health status of the Booking Service via API prefix
  *     tags: [Health]
  *     responses:
  *       200:
@@ -50,6 +58,14 @@ app.use("/api/bookings", bookingRoutes);
  */
 // Health check endpoint
 app.get("/booking/health", (req, res) => {
+  res.json({
+    status: "ok",
+    service: "booking-service",
+    timestamp: new Date().toISOString(),
+  });
+});
+
+app.get("/api/bookings/health", (req, res) => {
   res.json({
     status: "ok",
     service: "booking-service",
