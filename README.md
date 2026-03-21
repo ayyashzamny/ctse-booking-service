@@ -16,7 +16,7 @@ This service manages event bookings and integrates with:
 | `POST`   | `/api/bookings`         | Book an event             | Yes (Bearer)  |
 | `GET`    | `/api/bookings/:userId` | Get bookings by user ID   | No            |
 | `DELETE` | `/api/bookings/:id`     | Cancel a booking          | Yes (Bearer)  |
-| `GET`    | `api/booking/health`               | Health check              | No            |
+| `GET`    | `/api/bookings/health` | Health check              | No            |
 | `GET`    | `/api/bookings/docs`    | Swagger API documentation | No            |
 
 ## Inter-Service Communication

@@ -10,22 +10,13 @@ describe("Booking Service", () => {
     });
   });
 
-  describe("GET /booking/health", () => {
-    it("should return health status", async () => {
-      const res = await request(app).get("/booking/health");
-      expect(res.statusCode).toBe(200);
-      expect(res.body.status).toBe("ok");
-      expect(res.body.service).toBe("booking-service");
-      expect(res.body).toHaveProperty("timestamp");
-    });
-  });
-
   describe("GET /api/bookings/health", () => {
-    it("should return health status via alias", async () => {
+    it("should return health status", async () => {
       const res = await request(app).get("/api/bookings/health");
       expect(res.statusCode).toBe(200);
       expect(res.body.status).toBe("ok");
       expect(res.body.service).toBe("booking-service");
+      expect(res.body).toHaveProperty("timestamp");
     });
   });
 

@@ -36,18 +36,10 @@ app.use("/api/bookings/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 /**
  * @swagger
- * api/booking/health:
- *   get:
- *     summary: Health Check (Direct)
- *     description: Returns the health status of the Booking Service
- *     tags: [Health]
- *     responses:
- *       200:
- *         description: Service is healthy
  * /api/bookings/health:
  *   get:
- *     summary: Health Check (Routed)
- *     description: Returns the health status of the Booking Service via API prefix
+ *     summary: Health Check
+ *     description: Returns the health status of the Booking Service
  *     tags: [Health]
  *     responses:
  *       200:
