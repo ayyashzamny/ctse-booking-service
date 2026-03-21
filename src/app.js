@@ -36,7 +36,7 @@ app.use("/api/bookings/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 /**
  * @swagger
- * /booking/health:
+ * api/booking/health:
  *   get:
  *     summary: Health Check (Direct)
  *     description: Returns the health status of the Booking Service
@@ -53,14 +53,6 @@ app.use("/api/bookings/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
  *       200:
  *         description: Service is healthy
  */
-// Health check endpoint
-app.get("/booking/health", (req, res) => {
-  res.json({
-    status: "ok",
-    service: "booking-service",
-    timestamp: new Date().toISOString(),
-  });
-});
 
 app.get("/api/bookings/health", (req, res) => {
   res.json({
